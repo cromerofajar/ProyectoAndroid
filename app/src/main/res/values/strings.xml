@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ProyectoPMDM</string>
+    <string name="reto1">Reto1</string>
+    <string name="reto2">Reto2</string>
+    <string name="reto3">Reto3</string>
+    <string name="reto4">Reto4</string>
+    <string name="preguntaReto1">¿Cual es el año de lanzamiento de Spyro2?</string>
+    <string name="reto1Volver">Volver</string>
+    <string name="Ayuda">Ayuda</string>
+    <string name="sacarFoto">Foto</string>
+    <string name="reto2Volver">Volver</string>
+    <string name="imagen">imagen</string>
+    <string name="cuenta">10*10+10/10</string>
+    <string name="volverReto3">Volver</string>
+    <string name="preguntasReto4">¿Esto es una pregunta?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="volverReto4">Volver</string>
+</resources>
