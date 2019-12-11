@@ -12,7 +12,7 @@ const val reto1Clave=0
 const val reto2Clave=1
 const val reto3Clave=2
 const val reto4Clave=3
-
+var respuestasCorrectas=0
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,65 +36,75 @@ class MainActivity : Activity() {
             startActivityForResult(intent, reto4Clave)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        when (respuestasCorrectas){
+            1 -> toast("Primer Reto pasado")
+            2 -> toast("Ya van dos")
+            3 -> toast("Uno mas y listo")
+            4 -> {
+                toast("Listo pasado!")
+                val intent = Intent(this, Ganaste::class.java)
+                startActivity(intent)
+            }
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        if(requestCode== reto1Clave){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.getStringExtra("result1").equals("1999")){
-                    butReto1.setBackgroundColor(Color.GREEN)
-                    toast("Correcto")
-                    butReto1.setEnabled(false)
-                }
-                else{
-                    toast("No es la respuesta correcta")
-                }
-            }
-            else{
-                toast("Error al pasar los datos")
-            }
-        }
-        else if(requestCode== reto2Clave){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.getStringExtra("result2").equals("2")){
-                    butReto2.setBackgroundColor(Color.GREEN)
-                    toast("Correcto")
-                    butReto2.setEnabled(false)
-                }
-                else{
-                    toast("No es la respuesta correcta")
+        when (requestCode) {
+            reto1Clave -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.getStringExtra("result1").equals("1999")) {
+                        butReto1.setBackgroundColor(Color.GREEN)
+                        respuestasCorrectas=respuestasCorrectas+1
+                        butReto1.setEnabled(false)
+                    } else {
+                        toast("Reto no pasado\nVuelva a intentarlo")
+                    }
+                } else {
+                    toast("Error al pasar los datos")
                 }
             }
-            else{
-                toast("Error al pasar los datos")
-            }
-        }
-        else if(requestCode== reto3Clave){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.getStringExtra("result3").equals("101")){
-                    butReto3.setBackgroundColor(Color.GREEN)
-                    toast("Correcto")
-                    butReto3.setEnabled(false)
-                }
-                else{
-                    toast("No es la respuesta correcta")
+            reto2Clave -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.getStringExtra("result2").equals("2")) {
+                        butReto2.setBackgroundColor(Color.GREEN)
+                        respuestasCorrectas=respuestasCorrectas+1
+                        butReto2.setEnabled(false)
+                    } else {
+                        toast("Reto no pasado\nVuelva a intentarlo")
+                    }
+                } else {
+                    toast("Error al pasar los datos")
                 }
             }
-            else{
-                toast("Error al pasar los datos")
-            }
-        }
-        else if(requestCode== reto4Clave){
-            if(resultCode== Activity.RESULT_OK){
-                if(data.getStringExtra("result4").equals("si")){
-                    butReto4.setBackgroundColor(Color.GREEN)
-                    toast("Correcto")
-                    butReto4.setEnabled(false)
-                }
-                else{
-                    toast("No es la respuesta correcta")
+            reto3Clave -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.getStringExtra("result3").equals("101")) {
+                        butReto3.setBackgroundColor(Color.GREEN)
+                        respuestasCorrectas=respuestasCorrectas+1
+                        butReto3.setEnabled(false)
+                    } else {
+                        toast("Reto no pasado\nVuelva a intentarlo")
+                    }
+                } else {
+                    toast("Error al pasar los datos")
                 }
             }
-            else{
-                toast("Error al pasar los datos")
+            reto4Clave -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    if (data.getStringExtra("result4").equals("pasado")) {
+                        butReto4.setBackgroundColor(Color.GREEN)
+                        respuestasCorrectas=respuestasCorrectas+1
+                        butReto4.setEnabled(false)
+                    } else {
+                        toast("Reto no pasado\nVuelva a intentarlo")
+                    }
+                } else {
+                    toast("Error al pasar los datos")
+                }
+
             }
         }
     }
