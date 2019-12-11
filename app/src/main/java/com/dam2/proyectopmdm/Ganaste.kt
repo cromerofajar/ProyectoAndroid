@@ -12,7 +12,7 @@ class Ganaste : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ganaste)
 
-        reiniciar.setOnClickListener{
+        reiniciar.setOnClickListener{ //reinicio del juego restablece todos los valores a por defecto
             butReto1.setEnabled(true)
             butReto1.setBackgroundColor(Color.RED)
             butReto2.setEnabled(true)

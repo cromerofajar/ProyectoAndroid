@@ -57,10 +57,10 @@ class Reto2Activity : Activity() {
             }
         }
         volverReto2.setOnClickListener{
-            val data= Intent()
-            data.putExtra("result2",foto.toString())
-            setResult(Activity.RESULT_OK,data)
-            finish()
+            val data= Intent()  //Creacion del intent a devolver
+            data.putExtra("result2",foto.toString()) //Asignacion de nombre y valor a devolver
+            setResult(Activity.RESULT_OK,data) //Asignar el result
+            finish() //Cerrar este intent para volver al main
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {

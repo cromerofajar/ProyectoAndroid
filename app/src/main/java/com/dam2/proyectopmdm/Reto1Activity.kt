@@ -16,15 +16,15 @@ class Reto1Activity : AppCompatActivity() {
 
 
         volverReto1.setOnClickListener{
-            val data= Intent()
-            val texto=respuestaReto1.text
-            data.putExtra("result1",texto.toString())
-            setResult(Activity.RESULT_OK,data)
-            finish()
+            val data= Intent() //Crecion del intent
+            val texto=respuestaReto1.text //Asignacion del codigo de la celda de escritura a una variable
+            data.putExtra("result1",texto.toString()) //Asignacion de nombre y valor a devolver
+            setResult(Activity.RESULT_OK,data) //Asignar el result
+            finish() //Cerrar este intent para volver al main
         }
 
         ayuda.setOnClickListener{
-            browse("https://es.wikipedia.org/wiki/Spyro_2:_En_busca_de_los_talismanes")
+            browse("https://es.wikipedia.org/wiki/Spyro_2:_En_busca_de_los_talismanes") //Enlace para la ayuda
         }
     }
 }
